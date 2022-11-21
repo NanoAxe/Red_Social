@@ -8,11 +8,11 @@ import { Usuarios } from '../models/usuarios';
   providedIn: 'root'
 })
 export class UsuariosService {
-  private urlEndPoint: String = URL_BACKEND;
+  private urlEndPoint: string = URL_BACKEND+'/usuarios';
 
   constructor(private http: HttpClient) {}
 
   getUsuarios(): Observable<Usuarios[]>{
-    return this.http.get<Usuarios[]>(this.urlEndPoint+'/usuarios');
+    return this.http.get<Usuarios[]>(this.urlEndPoint);
   }
 }

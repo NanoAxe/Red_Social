@@ -1,0 +1,17 @@
+<form [formGroup]="form" class="container text-center row">
+    <div class="col-6">
+        <img src="../../../assets/img/horizonte.jpg">
+    </div>
+    <div class="col-6 justify-content-center">
+        <h2> Registrarse</h2>
+        <label for="usuario">Usuario </label>
+        <input type="text" id="usuario" formControlName="usuario">
+        <label  for="correo">Correo </label>
+        <input type="text" id="correo" formControlName="correo">
+        <label  for="contra">Contraseña</label>
+        <input type="password" id="contra" formControlName="password">
+        <br>
+        <button type="button" class="btn btn-success btn-sm">Guardar</button>
+        <button type="button" class="btn btn-danger btn-sm">Cancelar</button>
+    </div>
+</form>
