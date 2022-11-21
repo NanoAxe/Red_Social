@@ -17,14 +17,13 @@ export class RegistrarComponent implements OnInit {
 
   ngOnInit(): void {
     this.form=this.crearFormGroup();
-    console.log(this.usuarioService.getUsuarios());
   }
 
   crearFormGroup():FormGroup{
     return new FormGroup({
-      usuario: new FormControl("hola"),
+      usuario: new FormControl(),
       correo: new FormControl(),
-      password: new FormControl(),
+      password: new FormControl()
     });
   }  
   

@@ -1,0 +1,16 @@
+<form [formGroup]="form" class="container text-center row">
+    <div class="col-6 justify-content-center">
+        <h2> Instituto Nuevo Horizonte </h2>
+        <label for="usuario">Usuario </label>
+        <input type="text" id="usuario" formControlName="usuario">
+        <label  for="contra">Contraseña</label>
+        <input type="password" id="contra" formControlName="password">
+        <br>
+        <button type="button" class="btn btn-success col-12" (click)="loguear()">Iniciar Sesion</button>
+        <button type="button" class="btn btn-danger btn-sm">Cancelar</button>
+    </div>
+    <div class="col-6">
+        <img src="../../../assets/img/horizonte.jpg">
+    </div>
+    
+</form>
