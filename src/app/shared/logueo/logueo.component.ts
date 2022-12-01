@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsuariosService } from '../../services/usuarios.service';
 import { Usuarios } from '../../models/usuarios';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-logueo',
@@ -10,11 +11,11 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class LogueoComponent implements OnInit {
 
-  registroUsuarios: Usuarios[] | undefined;
-  user: Usuarios | undefined;
+  registroUsuarios!: Usuarios[];
+  user?: Usuarios;
   form!: FormGroup;
 
-  constructor(private usuarioService: UsuariosService) { }
+  constructor(private usuarioService: UsuariosService, private router:Router) { }
 
   ngOnInit(): void {
     this.cargarUsuarios();
@@ -38,12 +39,17 @@ export class LogueoComponent implements OnInit {
     this.user={
       usuario: this.form.value.usuario,
       password: this.form.value.password
-    }
-    if(this.registroUsuarios?.findIndex(
-      e => e.usuario===this.user?.usuario && e.password===this.user?.password)!=-1){
-        console.log("si funciona");
+    }  
+    this.user = this.registroUsuarios.find(e => e.usuario===this.user?.usuario && e.password===this.user?.password)
+    if(this.user){
+      console.log("si funciona");
+      this.LogueoExito(this.user?.idUsuario);
     }else{
-      console.log("no se encontro");
+      console.log("no funciono");
     }
+  }
+
+  LogueoExito(id: number | undefined):void{
+    this.router.navigate(['/home',id]);
   }
 }

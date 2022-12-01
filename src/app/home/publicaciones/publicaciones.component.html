@@ -1,0 +1,8 @@
+    <div class="card mb-3" *ngFor="let item of lista">
+        <img src="{{item.rutaImg}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{item.usuario?.usuario}}</h5>
+          <p class="card-text">{{item.descripcion}}</p>
+          <p class="card-text"><small class="text-muted">{{item.likes}}</small></p>
+        </div>
+      </div>

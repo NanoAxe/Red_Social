@@ -1,0 +1,30 @@
+<form [formGroup]="form" class="container text-center">
+    <div class="align-item-center justify-content-center section">
+        <br>
+        <h2> Cree su perfil </h2>
+        <div class="itemform">
+        <label for="nombre"> Nombre </label>
+        <br>
+        <input type="text" id="nombre" formControlName="nombre">
+        </div>
+        <div class="itemform">
+        <label  for="apellido"> Apellido </label>
+        <br>
+        <input type="text" id="apellido" formControlName="apellido">
+        </div>
+        <div class="itemform">
+        <label  for="estado"> Estado </label>
+        <br>
+        <input type="text" id="estado" formControlName="estado">
+        </div>
+        <!--************************* creando el input para guardar una imagen *********************-->
+        <div class="itemform justify-content-center">
+            <input #fotoInput (change)="onPhotoSelected($event)" type="file" class="d-none justify-content-center">
+            <img src="{{photoSelected}} || ../../../assets/img/perfil_base.jpg" class="img-fluid" (click)="fotoInput.click()">
+        <br>
+        </div>
+        <!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+        <button type="button" class="btn btn-success btn-sm">Guardar</button>
+        <button type="button" class="btn btn-danger btn-sm">Cancelar</button>
+    </div>
+</form>

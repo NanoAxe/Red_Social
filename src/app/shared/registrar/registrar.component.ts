@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Usuarios } from '../../models/usuarios';
 import { UsuariosService } from '../../services/usuarios.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registrar',
@@ -13,7 +14,7 @@ export class RegistrarComponent implements OnInit {
   user: Usuarios | undefined;
   form!:FormGroup;
 
-  constructor( private usuarioService: UsuariosService) { }
+  constructor( private usuarioService: UsuariosService,private router: Router) { }
 
   ngOnInit(): void {
     this.form=this.crearFormGroup();
@@ -36,8 +37,8 @@ export class RegistrarComponent implements OnInit {
     console.log(this.user);
     this.usuarioService.crearUsuario(this.user).subscribe(response =>{
       console.log(response);
+      this.router.navigate(['/crearPerfil',response.idUsuario]);
     }
     );
-    
   }
 }

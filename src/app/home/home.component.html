@@ -1,0 +1,23 @@
+<div class="col-4 justify-content-center">
+  <p>aqui irian un perifl</p>
+  <h3> {{usuario?.usuario}}</h3>
+  <p> {{usuario?.correo}} </p>
+</div>
+<div class="col-8">
+  <div>
+    <input type="file" id="imagen" formControlName="img">
+            <img src="" >
+    <label  for="apellido"> Apellido </label>
+        <br>
+        <input type="text" id="apellido" formControlName="apellido">
+        
+  </div>
+  <div class="card mb-3" *ngFor="let item of lista">
+    <img src="{{item.rutaImg}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{item.usuario?.usuario}}</h5>
+      <p class="card-text">{{item.descripcion}}</p>
+      <p class="card-text"><small class="text-muted">{{item.likes}}</small></p>
+    </div>
+  </div>
+</div>

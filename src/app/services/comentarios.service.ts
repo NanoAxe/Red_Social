@@ -8,12 +8,28 @@ import { Comentarios } from '../models/comentarios';
   providedIn: 'root'
 })
 export class ComentariosService {
-  private urlEndPoint: string = URL_BACKEND+'/comentarios';
+  private urlEndPoint: string = URL_BACKEND+'/comentario';
 
   constructor(private http:HttpClient) { }
 
-  getComentarios(): Observable<Comentarios[]>{
+  getAll(): Observable<Comentarios[]>{
     return this.http.get<Comentarios[]>(this.urlEndPoint);
   }
-  
+
+  get(id: number): Observable <Comentarios>{
+    return this.http.get<Comentarios>(this.urlEndPoint + '/' + id);
+  }
+
+  create(comentario: Comentarios): Observable<any>{
+    return this.http.post(this.urlEndPoint,comentario);
+  }
+
+  update(comentario: Comentarios, id: number): Observable<any>{
+    return this.http.put(this.urlEndPoint + '/' + id,comentario);
+  }
+
+  delete(id: number): Observable <any>{
+    return this.http.delete(this.urlEndPoint + '/' + id);
+  }
+
 }
