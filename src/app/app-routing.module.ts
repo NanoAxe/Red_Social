@@ -7,7 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { CrearPerfilComponent } from './shared/crear-perfil/crear-perfil.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/login'},
+  {path: '', component: RegistrarComponent},
   {path: 'registrarse', component: RegistrarComponent},
   {path: 'login', component: LogueoComponent},
   {path: 'perfil', component: PerfilComponent},

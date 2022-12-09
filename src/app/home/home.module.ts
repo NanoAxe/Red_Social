@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PerfilComponent } from './perfil/perfil.component';
 import { HomeComponent } from './home.component';
 import { PublicacionesComponent } from './publicaciones/publicaciones.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import { PublicacionesComponent } from './publicaciones/publicaciones.component'
   ],
   imports: [
     CommonModule,
+    SharedModule
   ],
   exports: [
     PerfilComponent

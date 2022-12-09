@@ -1,4 +1,5 @@
-<form [formGroup]="form" class="container text-center">
+<form [formGroup]="form" class="container text-center" enctype="multipart/form-data">
+    <!--multipart / formData permite el envio de archivos-->
     <div class="align-item-center justify-content-center section">
         <br>
         <h2> Cree su perfil </h2>
@@ -19,12 +20,12 @@
         </div>
         <!--************************* creando el input para guardar una imagen *********************-->
         <div class="itemform justify-content-center">
-            <input #fotoInput (change)="onPhotoSelected($event)" type="file" class="d-none justify-content-center">
+            <input #fotoInput type="file" class="d-none justify-content-center">
             <img src="{{photoSelected}} || ../../../assets/img/perfil_base.jpg" class="img-fluid" (click)="fotoInput.click()">
-        <br>
+        <!-- Link del video: https://www.youtube.com/watch?v=4MEsROoq5Qw min: aprox 30 -->
         </div>
         <!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
-        <button type="button" class="btn btn-success btn-sm">Guardar</button>
+        <button type="button" class="btn btn-success btn-sm" >Guardar</button>
         <button type="button" class="btn btn-danger btn-sm">Cancelar</button>
     </div>
 </form>

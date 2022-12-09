@@ -55,7 +55,7 @@ export class CrearPerfilComponent implements OnInit {
       nombre: this.form.value.nombre,
       apellido: this.form.value.apellido,
       estado: this.form.value.estado,
-      nombreFoto: this.form.value.img,
+      imgPerfil: this.form.value.img,
       usuario: this.usuario
     }
     console.log(this.perfil);
@@ -65,15 +65,5 @@ export class CrearPerfilComponent implements OnInit {
     );
   }
 
-  onPhotoSelected(event: HtmlInputEvent):void{
-    if(event.target.files && event.target.files[0]){
-      this.file = <File>event.target.files[0];
-      //img preview
-      const reader= new FileReader();
-      reader.onload = e => this.photoSelected = reader.result;
-      reader.readAsDataURL(this.file);
-    }
-  }
-  
 
 }

@@ -22,7 +22,11 @@ import { FooterComponent } from './footer/footer.component';
     ReactiveFormsModule
   ],
   exports:[
-    RegistrarComponent
+    RegistrarComponent,
+    LogueoComponent,
+    CrearPerfilComponent,
+    NavbarComponent,
+    FooterComponent
   ]
 })
 export class SharedModule { }

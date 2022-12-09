@@ -17,7 +17,7 @@ export class PublicacionesComponent implements OnInit {
   }
 
   cargarPublicaciones(){
-    this.publicService.getPublicaciones().subscribe(response =>{
+    this.publicService.getAll().subscribe(response =>{
       this.lista=response;
     });
   }
