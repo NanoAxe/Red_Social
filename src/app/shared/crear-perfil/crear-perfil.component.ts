@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { PerfilesService } from 'src/app/services/perfiles.service';
 import { Perfiles } from '../../models/perfiles';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UsuariosService } from '../../services/usuarios.service';
 import { Usuarios } from '../../models/usuarios';
 import { read } from 'fs';
@@ -24,21 +24,21 @@ export class CrearPerfilComponent implements OnInit {
   id!: number;
   usuario!: Usuarios;
   file: File | undefined;
-  photoSelected!: string | ArrayBuffer | null;
+  photoSelected!: String | ArrayBuffer | null;
 
   constructor(private perfilService: PerfilesService,
-    activateroute : ActivatedRoute,
-    private usuarioService: UsuariosService
-    ) {
-      this.id = activateroute.snapshot.params['id'];
-     }
+    activateRoute : ActivatedRoute,
+    private usuarioService: UsuariosService,
+    private router: Router
+    ){
+      this.id = activateRoute.snapshot.params['id'];
+    }
 
   ngOnInit(): void {
-    this.crearFormGroup();
+    this.form = this.crearFormGroup();
     this.usuarioService.getUsuario(this.id).subscribe(response =>{
       this.usuario=response;
-      console.log(this.usuario);
-    })
+    });
   }
 
   crearFormGroup():FormGroup{
@@ -55,14 +55,16 @@ export class CrearPerfilComponent implements OnInit {
       nombre: this.form.value.nombre,
       apellido: this.form.value.apellido,
       estado: this.form.value.estado,
-      imgPerfil: this.form.value.img,
+      //imgPerfil: this.form.value.img,
       usuario: this.usuario
     }
-    console.log(this.perfil);
+    console.log("aqui el perfil"+this.perfil);
     this.perfilService.create(this.perfil).subscribe(response =>{
       console.log(response);
+      alert(response);
     }
     );
+    this.router.navigate(['/login']);
   }
 
 

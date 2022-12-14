@@ -18,14 +18,15 @@
         <br>
         <input type="text" id="estado" formControlName="estado">
         </div>
-        <!--************************* creando el input para guardar una imagen *********************-->
+        <!-- Link del video: https://www.youtube.com/watch?v=4MEsROoq5Qw min: aprox 30 -->
+        <!--************************* creando el input para guardar una imagen *********************
         <div class="itemform justify-content-center">
             <input #fotoInput type="file" class="d-none justify-content-center">
             <img src="{{photoSelected}} || ../../../assets/img/perfil_base.jpg" class="img-fluid" (click)="fotoInput.click()">
-        <!-- Link del video: https://www.youtube.com/watch?v=4MEsROoq5Qw min: aprox 30 -->
+        
         </div>
-        <!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
-        <button type="button" class="btn btn-success btn-sm" >Guardar</button>
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+        <button type="button" class="btn btn-success btn-sm" (click)="crearPerfil()">Guardar</button>
         <button type="button" class="btn btn-danger btn-sm">Cancelar</button>
     </div>
 </form>

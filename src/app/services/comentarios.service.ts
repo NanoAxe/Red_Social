@@ -17,7 +17,7 @@ export class ComentariosService {
   }
 
   get(id: number): Observable <Comentarios>{
-    return this.http.get<Comentarios>(this.urlEndPoint + '/' + id);
+    return this.http.get<Comentarios>(this.urlEndPoint + '/:' + id);
   }
 
   create(comentario: Comentarios): Observable<any>{
@@ -25,11 +25,11 @@ export class ComentariosService {
   }
 
   update(comentario: Comentarios, id: number): Observable<any>{
-    return this.http.put(this.urlEndPoint + '/' + id,comentario);
+    return this.http.put(this.urlEndPoint + '/:' + id,comentario);
   }
 
   delete(id: number): Observable <any>{
-    return this.http.delete(this.urlEndPoint + '/' + id);
+    return this.http.delete(this.urlEndPoint + '/:' + id);
   }
 
 }

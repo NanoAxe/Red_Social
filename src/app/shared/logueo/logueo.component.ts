@@ -43,13 +43,13 @@ export class LogueoComponent implements OnInit {
     this.user = this.registroUsuarios.find(e => e.usuario===this.user?.usuario && e.password===this.user?.password)
     if(this.user){
       console.log("si funciona");
-      this.LogueoExito(this.user?.idUsuario);
+      this.LogueoExito(this.user?.idUsuario!);
     }else{
       console.log("no funciono");
     }
   }
 
-  LogueoExito(id: number | undefined):void{
+  LogueoExito(id: number):void{
     this.router.navigate(['/home',id]);
   }
 }

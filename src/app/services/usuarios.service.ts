@@ -17,7 +17,7 @@ export class UsuariosService {
   }
 
   getUsuario(id: number): Observable <Usuarios>{
-    return this.http.get<Usuarios>(this.urlEndPoint + '/' + id);
+    return this.http.get<Usuarios>(this.urlEndPoint + '/:' + id);
   }
 
   crearUsuario(user: Usuarios): Observable<any>{
@@ -25,11 +25,11 @@ export class UsuariosService {
   }
 
   updateUsuario(user: Usuarios, id: number): Observable<any>{
-    return this.http.put(this.urlEndPoint + '/' + id,user);
+    return this.http.put(this.urlEndPoint + '/:' + id,user);
   }
 
   deleteUsuario(id: number): Observable <any>{
-    return this.http.delete(this.urlEndPoint + '/' + id);
+    return this.http.delete(this.urlEndPoint + '/:' + id);
   }
 
 }

@@ -6,13 +6,12 @@
       </a>
       <ul class="nav justify-content-center">
         <li class="nav-item">
-          <a class="nav-link" href="#">Mi perfil</a>
+          <a [routerLink]="[ '/home',1 ]" routerLinkActive="active">name</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Chat</a>
+          <a [routerLink]="[ '/home/',1,'/chat' ]" routerLinkActive="active">name</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Publicaciones</a>
           </li>
       </ul>
     </div>

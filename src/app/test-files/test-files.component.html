@@ -1,0 +1,7 @@
+<Form>
+    <input #fotoInput type="file" class="d-none justify-content-center">
+    <img src="{{photoSelected}} || ../../../assets/img/perfil_base.jpg" class="img-fluid" (click)="fotoInput.click()">
+</Form>
+<div *ngFor="let item of imagenes"> 
+    <img src="{{item.url}}" alt="aqui iria una images XD" >
+</div>

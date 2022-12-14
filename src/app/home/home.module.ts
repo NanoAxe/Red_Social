@@ -4,6 +4,7 @@ import { PerfilComponent } from './perfil/perfil.component';
 import { HomeComponent } from './home.component';
 import { PublicacionesComponent } from './publicaciones/publicaciones.component';
 import { SharedModule } from '../shared/shared.module';
+import { AppRoutingModule } from '../app-routing.module';
 
 @NgModule({
   declarations: [
@@ -13,10 +14,12 @@ import { SharedModule } from '../shared/shared.module';
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    AppRoutingModule,
   ],
   exports: [
-    PerfilComponent
+    PerfilComponent,
+    PublicacionesComponent
   ]
 })
 export class HomeModule { }

@@ -6,6 +6,7 @@ import { LogueoComponent } from './logueo/logueo.component';
 import { CrearPerfilComponent } from './crear-perfil/crear-perfil.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
+import { AppRoutingModule } from '../app-routing.module';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { FooterComponent } from './footer/footer.component';
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   exports:[
     RegistrarComponent,

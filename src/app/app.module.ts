@@ -7,9 +7,11 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 import { HomeModule } from './home/home.module';
+import { TestFilesComponent } from './test-files/test-files.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TestFilesComponent
   ],
   imports: [
     BrowserModule,

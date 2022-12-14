@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Usuarios } from '../../models/usuarios';
 import { UsuariosService } from '../../services/usuarios.service';
+import { Perfiles } from '../../models/perfiles';
+import { PerfilesService } from '../../services/perfiles.service';
 
 @Component({
   selector: 'app-perfil',
@@ -10,19 +12,30 @@ import { UsuariosService } from '../../services/usuarios.service';
 })
 export class PerfilComponent implements OnInit {
   
-  idUsuario: number | undefined;
-  perfil: Usuarios | undefined;
-  constructor(private activateroute: ActivatedRoute, private userService:UsuariosService) { 
-    this.idUsuario= activateroute.snapshot.params['id'];
+  @Input() id!: number;
+  perfil: Perfiles | undefined;
+  registroPerfiles!: Perfiles[];
+
+  constructor(private perfilService: PerfilesService) { 
+    this.cargarPerfiles();
   }
 
   ngOnInit(): void {
+    this.buscarPerfil();
+    console.log(this.perfil);
   }
 
-  cargarPerfil(): void{
-    this.userService.getUsuarios().subscribe(response =>{
-      
-    });
+  cargarPerfiles():void {
+    this.perfilService.getAll().subscribe(response =>{
+      console.log(response);
+      this.registroPerfiles=response;
+  });
+  }
+
+  buscarPerfil(): void {
+    this.perfil = this.registroPerfiles.find(e => 
+      e.usuario?.idUsuario == this.id);
+      console.log("se encontro el perfil "+ this.perfil);
   }
 
 }

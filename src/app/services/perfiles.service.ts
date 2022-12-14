@@ -17,7 +17,7 @@ export class PerfilesService {
   }
 
   get(id: number): Observable <Perfiles>{
-    return this.http.get<Perfiles>(this.urlEndPoint + '/' + id);
+    return this.http.get<Perfiles>(this.urlEndPoint + '/:' + id);
   }
 
   create(perfil: Perfiles): Observable<any>{
@@ -25,11 +25,11 @@ export class PerfilesService {
   }
 
   update(perfil: Perfiles, id: number): Observable<any>{
-    return this.http.put(this.urlEndPoint + '/' + id,perfil);
+    return this.http.put(this.urlEndPoint + '/:' + id,perfil);
   }
 
   delete(id: number): Observable <any>{
-    return this.http.delete(this.urlEndPoint + '/' + id);
+    return this.http.delete(this.urlEndPoint + '/:' + id);
   }
 
 }

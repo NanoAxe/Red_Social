@@ -10,7 +10,7 @@ import { PublicacionesService } from '../../services/publicaciones.service';
 export class PublicacionesComponent implements OnInit {
   lista: Publicaciones[] | undefined;
 
-  constructor(private publicService : PublicacionesService) { }
+  constructor(private publicService : PublicacionesService) {}
 
   ngOnInit(): void {
     this.cargarPublicaciones();
@@ -20,6 +20,10 @@ export class PublicacionesComponent implements OnInit {
     this.publicService.getAll().subscribe(response =>{
       this.lista=response;
     });
+  }
+
+  subirPublicacion(){
+    
   }
 
 }

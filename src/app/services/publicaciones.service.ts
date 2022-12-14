@@ -17,7 +17,7 @@ export class PublicacionesService {
   }
 
   get(id: number): Observable <Publicaciones>{
-    return this.http.get<Publicaciones>(this.urlEndPoint + '/' + id);
+    return this.http.get<Publicaciones>(this.urlEndPoint + '/:' + id);
   }
 
   create(publicacion: Publicaciones): Observable<any>{
@@ -25,11 +25,11 @@ export class PublicacionesService {
   }
 
   update(publicacion: Publicaciones, id: number): Observable<any>{
-    return this.http.put(this.urlEndPoint + '/' + id,publicacion);
+    return this.http.put(this.urlEndPoint + '/:' + id,publicacion);
   }
 
   delete(id: number): Observable <any>{
-    return this.http.delete(this.urlEndPoint + '/' + id);
+    return this.http.delete(this.urlEndPoint + '/:' + id);
   }
 
 }

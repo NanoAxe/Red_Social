@@ -5,17 +5,17 @@
         <div class="itemform">
         <label for="usuario">Usuario </label>
         <br>
-        <input type="text" id="usuario" formControlName="usuario">
+        <input type="text" id="usuario" formControlName="usuario" autocomplete="off">
         </div>
         <div class="itemform">
         <label  for="correo">Correo </label>
         <br>
-        <input type="text" id="correo" formControlName="correo">
+        <input type="text" id="correo" formControlName="correo" autocomplete="off">
         </div>
         <div class="itemform">
         <label  for="contra">Contraseña</label>
         <br>
-        <input type="password" id="contra" formControlName="password">
+        <input type="password" id="contra" formControlName="password" autocomplete="off">
         </div>
         <br>
         <button type="button" class="btn btn-success btn-sm" (click)="crearUsuario()">Guardar</button>
