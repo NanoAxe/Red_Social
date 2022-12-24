@@ -1,0 +1,55 @@
+<form [formGroup]="form" class="container text-center">
+    <div class="row align-item-center justify-content-center section">
+        <div class="col-lg-6 col-md-6 col-sm-10">
+            <h2> Usuario </h2>
+            <div class="itemform">
+                <label for="usuario">Usuario </label>
+                <br>
+                <input type="text" id="usuario" formControlName="usuario" autocomplete="off">
+            </div>
+            <div class="itemform">
+                <label for="correo">Correo </label>
+                <br>
+                <input type="text" id="correo" formControlName="correo" autocomplete="off">
+            </div>
+            <div class="itemform">
+                <label for="passOld">Contraseña Antigua</label>
+                <br>
+                <input type="password" id="passOld" formControlName="passwordOld" autocomplete="off">
+            </div>
+            <div class="itemform">
+                <label for="passNew">Contraseña Nueva</label>
+                <br>
+                <input type="password" id="passNew" formControlName="passwordNew" autocomplete="off">
+            </div>
+            <br>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-10">
+            <h2> Perfil </h2>
+            <div class="itemform justify-content-center">
+                <input #fotoInput type="file" (change)="capturar($event)" class="d-none justify-content-center" >
+                <img src="{{photoSelected}}" class="img-fluid img_perfil" (click)="fotoInput.click()">
+            </div>
+            <div class="itemform">
+                <label for="nombre"> Nombre </label>
+                <br>
+                <input type="text" id="nombre" formControlName="nombre" autocomplete="off">
+            </div>
+            <div class="itemform">
+                <label for="apellido"> Apellido </label>
+                <br>
+                <input type="text" id="apellido" formControlName="apellido" autocomplete="off">
+            </div>
+            <div class="itemform">
+                <label for="estado"> Estado </label>
+                <br>
+                <input type="text" id="estado" maxlength="150" formControlName="estado" autocomplete="off">
+            </div>
+        </div>
+        <div class="row justify-content-center">
+        <button type="button" class="btn btn-success btn-sm col-3" (click)="verificar()" >Guardar</button>
+        <button type="button" class="btn btn-danger btn-sm col-3" (click)="irA()" >Cancelar</button>
+        </div>
+    </div>
+
+</form>

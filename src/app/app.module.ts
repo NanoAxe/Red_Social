@@ -8,6 +8,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 import { HomeModule } from './home/home.module';
 import { TestFilesComponent } from './test-files/test-files.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LogingRegistroModule } from './loging-registro/loging-registro.module';
+import { ChatModule } from './chat/chat.module';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +23,11 @@ import { TestFilesComponent } from './test-files/test-files.component';
     AppRoutingModule,
     HttpClientModule,
     SharedModule,
-    HomeModule
+    LogingRegistroModule,
+    HomeModule,
+    FormsModule,
+    ReactiveFormsModule,
+    ChatModule
   ],
   providers: [],
   bootstrap: [AppComponent]

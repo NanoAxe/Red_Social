@@ -20,7 +20,16 @@ export class UploadFilesService {
   create(file: File): Observable<HttpEvent<any>>{
     const formData : FormData = new FormData;
     formData.append('files', file);
-    const req = new HttpRequest('POST', '$(this.URL_BACKENDFILES)/upload', formData, {
+    const req = new HttpRequest('POST', this.urlEndPoint+'/upload', formData, {
+      responseType: 'json'
+    });
+    return this.http.request(req);
+  }
+
+  subir(file: File): Observable<HttpEvent<any>>{
+    const formData : FormData = new FormData;
+    formData.append('files', file);
+    const req = new HttpRequest('POST', this.urlEndPoint+'/subir', formData, {
       responseType: 'json'
     });
     return this.http.request(req);

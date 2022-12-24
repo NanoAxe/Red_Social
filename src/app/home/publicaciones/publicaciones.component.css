@@ -1,4 +1,21 @@
 .card{
     margin-bottom: 1rem;
     margin: 0 1rem;
+    opacity: 1;
+    background-size: 25px 25px;
+    background-image:  repeating-linear-gradient(0deg, #bdbdbd, #bdbdbd 0.5px, #f1f1f1 1.5px, #f1f1f1);
+}
+input{
+    width: 98%;
+    margin: 0.5rem auto;
+}
+.btn-img{
+    width: 30px;
+    margin: auto;
+}
+.btn-img-success{
+    width: 30px;
+    background-color:#4ae470bb ;
+    border-radius: 10%;
+    margin: auto;
 }

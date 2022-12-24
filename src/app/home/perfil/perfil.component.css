@@ -1,6 +1,18 @@
 .card{
     margin: 0 1rem;
+    opacity: 1;
+    background-size: 25px 25px;
+    background-image:  repeating-linear-gradient(0deg, #bdbdbd, #bdbdbd 0.5px, #f1f1f1 1.5px, #f1f1f1);
 }
 .card-img{
-    height: auto;
+    max-height: 250px;
+    max-width: 90%;
+    border-radius: 100%;
+    border:solid #ECC424 2px;
+    margin:auto;
+    object-fit: cover;
+    object-position: center;
+}
+.info{
+    text-align: center;
 }

@@ -1,20 +1,19 @@
-<form [formGroup]="form" class="container text-center">
+<form [formGroup]="form" class="container text-center mt-5">
     <div class="align-item-center section">
         <br>
         <h2> Nuevo Horizonte </h2>
         <div class="itemform">
         <label for="usuario">Usuario </label>
         <br>
-        <input type="text" id="usuario" formControlName="usuario">
+        <input type="text" id="usuario" formControlName="usuario" autocomplete="off">
         </div>
         <div class="itemform">
         <label for="contra">Contraseña</label>
         <br>
-        <input type="password" id="contra" formControlName="password">
+        <input type="password" id="contra" formControlName="password" autocomplete="off">
         </div>
         <a href="/registrarse"> ¿No tienes una cuenta aun? Registrate!</a>
         <br>
         <button type="button" class="btn btn-success col-3" (click)="loguear()">Iniciar Sesion</button>
-        <button type="button" class="btn btn-danger col-3">Cancelar</button>
     </div>
 </form>

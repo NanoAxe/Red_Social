@@ -1,8 +1,11 @@
-<div class="card" style="width: 18rem;">
-  <img src="../../assets/img/perfil_base.jpg" class="card-img-top card-img" alt="...">
-  <div class="card-body">
-    <p class="card-text">{{perfil?.nombre}} </p>
-    <p class="card-text">{{perfil?.apellido}}</p>
+<div class="card shadow-sm p-3 mb-5 bg-body rounded" >
+
+  <img src="{{perfil?.urlPerfil}}" class="card-img-top card-img" alt="...">
+  <div class="card-body info" >
+    <h5 class="card-text">{{perfil?.nombre }} {{perfil?.apellido}}</h5>
+    
     <p class="card-text">{{perfil?.estado}}</p>
+    
+    <button type="button" class="btn btn-danger btn-sm" (click)="irA()">Editar</button>
   </div>
 </div>

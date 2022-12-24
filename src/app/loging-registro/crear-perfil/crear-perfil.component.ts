@@ -5,12 +5,12 @@ import { Perfiles } from '../../models/perfiles';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UsuariosService } from '../../services/usuarios.service';
 import { Usuarios } from '../../models/usuarios';
-import { read } from 'fs';
+import { UploadFilesService } from '../../services/upload-files.service';
+import { URL_BACKENDFILES } from '../../config/config';
 
 interface HtmlInputEvent extends Event{
   target: HTMLInputElement & EventTarget;
 }
-
 
 @Component({
   selector: 'app-crear-perfil',
@@ -19,19 +19,24 @@ interface HtmlInputEvent extends Event{
 })
 export class CrearPerfilComponent implements OnInit {
 
+  private urlEndPoint: string = URL_BACKENDFILES;
   perfil: Perfiles | undefined;
   form!:FormGroup;
   id!: number;
   usuario!: Usuarios;
-  file: File | undefined;
-  photoSelected!: String | ArrayBuffer | null;
+  file!: File;
+  photoSelected!: String | undefined;
+  
 
-  constructor(private perfilService: PerfilesService,
+  constructor(
+    private perfilService: PerfilesService,
     activateRoute : ActivatedRoute,
     private usuarioService: UsuariosService,
-    private router: Router
+    private router: Router,
+    private fileService: UploadFilesService
     ){
       this.id = activateRoute.snapshot.params['id'];
+      this.photoSelected="../../../assets/img/perfil_base.jpg";
     }
 
   ngOnInit(): void {
@@ -46,7 +51,6 @@ export class CrearPerfilComponent implements OnInit {
       nombre: new FormControl(),
       apellido: new FormControl(),
       estado: new FormControl(),
-      img: new FormControl()
     });
   }
 
@@ -55,16 +59,45 @@ export class CrearPerfilComponent implements OnInit {
       nombre: this.form.value.nombre,
       apellido: this.form.value.apellido,
       estado: this.form.value.estado,
-      //imgPerfil: this.form.value.img,
+      imgPerfil: this.file.name,
+      urlPerfil: this.urlEndPoint + "/",
       usuario: this.usuario
     }
-    console.log("aqui el perfil"+this.perfil);
     this.perfilService.create(this.perfil).subscribe(response =>{
       console.log(response);
-      alert(response);
     }
     );
-    this.router.navigate(['/login']);
+    this.router.navigate(['login']);
+  }
+
+  capturar(event: any):void{
+    const archivoCapturado = event.target.files[0];
+    this.file= archivoCapturado;
+    console.log(this.file);
+    this.subirArchivo();
+  }
+
+  subirArchivo(): any{
+    this.fileService.create(this.file!).subscribe(response => {
+      console.log(response);
+      this.fileService.getAll().subscribe(response =>{
+        console.log(response);
+        this.photoSelected=this.urlEndPoint+"/"+this.file.name;
+      });
+    });
+    /*
+    try{
+      const formularioDatos = new FormData();
+      this.lista.array.forEach(archivo => {
+        console.log(archivo);
+        formularioDatos.append('files',archivo);
+      });
+      this.fileService.create(formularioDatos).subscribe(response => {
+        console.log(response);
+      });
+    }catch(e){
+      console.log("error",e);
+    }*/
   }
 
 

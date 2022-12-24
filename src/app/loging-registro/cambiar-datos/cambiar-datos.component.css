@@ -9,11 +9,7 @@
     width: 50%;
     margin:1rem auto;
 }
-.itemform img{
-    width: 250px;
-    height: 250px;
-    border-radius: 100%;
-}
 button{
     margin:0 1rem;
+    width: 10%;
 }

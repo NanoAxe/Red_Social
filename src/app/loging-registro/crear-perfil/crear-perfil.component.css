@@ -1,0 +1,19 @@
+.section{
+    background-image: url("../../../assets/img/horizonte.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 500px;
+    background-position: center;
+}
+.itemform{
+    width: 50%;
+    margin:1rem auto;
+}
+.itemform img{
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+}
+button{
+    margin:0 1rem;
+}

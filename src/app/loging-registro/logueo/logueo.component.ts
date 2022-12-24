@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuariosService } from '../../services/usuarios.service';
 import { Usuarios } from '../../models/usuarios';
-import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-logueo',
@@ -45,11 +45,11 @@ export class LogueoComponent implements OnInit {
       console.log("si funciona");
       this.LogueoExito(this.user?.idUsuario!);
     }else{
-      console.log("no funciono");
+      alert("Usuario o contraseña incorrectos");
     }
   }
 
   LogueoExito(id: number):void{
-    this.router.navigate(['/home',id]);
+    this.router.navigate(['home',id]);
   }
 }

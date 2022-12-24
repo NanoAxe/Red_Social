@@ -1,0 +1,12 @@
+<form [formGroup]="form">
+    <input placeholder="Descripcion" maxlength="250"
+     style="width: 100%;" formControlName="comentario" (click)="cargarComentarios()">
+      <button type="button" class="btn btn-success btn-sm" (click)="crearComentario()">Publicar</button>
+</form>
+<div *ngFor="let item of lista">
+    <div *ngIf="item.publicacion?.idPublicacion == idPublic" class="comentario">
+        <label>@{{item.usuario?.usuario}} </label>
+        <br>
+        <span>{{item.contenido}}</span>
+    </div>
+</div>

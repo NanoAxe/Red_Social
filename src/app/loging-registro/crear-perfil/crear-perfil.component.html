@@ -1,0 +1,30 @@
+<form [formGroup]="form" class="container text-center mt-5" enctype="multipart/form-data">
+    <!--multipart / formData permite el envio de archivos-->
+    <div class="align-item-center justify-content-center section">
+        <br>
+        <h2> Su nuevo perfil </h2>
+        <div class="itemform justify-content-center">
+            <input #fotoInput type="file" (change)="capturar($event)" class="d-none justify-content-center" >
+            <img src="{{photoSelected}}" class="img-fluid img_perfil" (click)="fotoInput.click()">
+        </div>
+        <div class="itemform">
+        <label for="nombre"> Nombre </label>
+        <br>
+        <input type="text" id="nombre" formControlName="nombre" autocomplete="off">
+        </div>
+        <div class="itemform">
+        <label  for="apellido"> Apellido </label>
+        <br>
+        <input type="text" id="apellido" formControlName="apellido" autocomplete="off">
+        </div>
+        <div class="itemform">
+        <label  for="estado"> Estado </label>
+        <br>
+        <input type="text" id="estado" maxlength="150" formControlName="estado" autocomplete="off">
+        </div>
+        
+        
+        <button type="button" class="btn btn-success btn-sm" (click)="crearPerfil()">Guardar</button>
+        <button type="button" class="btn btn-danger btn-sm">Cancelar</button>
+    </div>
+</form>

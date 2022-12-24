@@ -1,32 +1,34 @@
-  <form>
-    <div class="card justify-content-center">
-      <input #fotoInput type="file" class="d-none">
-            <img src="../../../assets/img/horizonte.jpg" class="img-fluid" (click)="fotoInput.click()">
-      <textarea placeholder="Descripcion" maxlength="500" style="width: 90%;"></textarea>
-      <button type="button" class="btn btn-success btn-sm">Publicar</button>
+<!-- ***** Para crear una nueva publicacion **** -->
+<form [formGroup]="form">
+  <div class="card justify-content-center shadow-sm p-3 mb-5 bg-body rounded">
+    <h3> ¿Qué hay de nuevo, viejo? </h3>
+    <img src="../../../assets/img/image_icon.png" class="{{imgclass}}" (click)="subirPublicacion.click()">
+    <input #subirPublicacion type="file" class="d-none" (change)="capturar($event)">
+    <input class="form-control" placeholder="Descripcion" maxlength="250" formControlName="descripcion" (click)="cargarPublicaciones()">
+    <button type="button" class="btn btn-success btn-sm" (click)="crearPublicacion()">Publicar</button>
+  </div>
+</form>
+<!-- ***** Visualizacion de publicaciones **** -->
+<div>
+  <div class="card shadow-sm p-3 mb-5 bg-body rounded" *ngFor="let item of lista">
+    <div *ngIf="item.urlImg">
+      <img src="{{item?.urlImg}}{{item.img}}" class="card-img-top" style="height: 20rem; max-width: 100%;" alt="aqui iria una imagen">
     </div>
-  </form>
-<!--   <div class="card" *ngFor="let item of lista" style="width:18rem;">
-      <img src="{{item.rutaImg}}" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">{{item.usuario?.usuario}} EL pepe</h5>
-        <p class="card-text">{{item.descripcion}}</p>
-        <p class="card-text"><small class="text-muted">{{item.likes}}</small></p>
-      </div>
-    </div>-->
-    <div class="card">
-      <img src="../../assets/img/horizonte.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title"> EL pepe</h5>
-        <p class="card-text">Esta es una descripcion de prueba</p>
-        <p class="card-text"><small class="text-muted">👍 25</small></p>
-      </div>
+    <div class="card-body">
+      <h5 class="card-title">@{{item.usuario?.usuario}}
+        <button class="btn btn-outline-danger btn-sm " type="button" (click)="eliminarPublicacion(item)">x</button>
+      </h5>
+      <p class="card-text">{{item.descripcion}}</p>
+      <p class="card-text">
+        {{item.likes}}
+        <button class="btn btn-sm" (click)="darMeGusta(item)"><img src="../../../assets/img/me_gusta.png"
+            class="img-fluid" style="width:20px ; height: auto;"></button>
+      </p>
     </div>
-    <div class="card">
-      <img src="../../assets/img/horizonte.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title"> EL pepe</h5>
-        <p class="card-text">Esta es una descripcion de prueba</p>
-        <p class="card-text"><small class="text-muted">👍 25</small></p>
-      </div>
+    <!-- ***** Visualizacion de los comentarios **** -->
+    <div class="card-body">
+      <app-comentarios [idUser]="id" [idPublic]="item.idPublicacion">
+      </app-comentarios>
     </div>
+  </div>
+</div>

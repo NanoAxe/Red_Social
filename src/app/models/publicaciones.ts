@@ -1,10 +1,9 @@
 import { Usuarios } from './usuarios';
 export class Publicaciones{
     idPublicacion?: number | undefined;
-    rutaImg?: string | undefined;
-    nombreImg?: string | undefined;
+    urlImg?: string | undefined;
+    img?: string | undefined;
     descripcion?: string | undefined;
-    likes?: number | undefined;
-    fechaPublicacion: string | undefined;
+    likes!: number;
     usuario: Usuarios | undefined;
 }
